@@ -17,7 +17,7 @@ namespace SilverBear.Interview
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(f => f.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase);
 
             services.AddSingleton<IProductRepository, ProductRepository>();        // 
         }
