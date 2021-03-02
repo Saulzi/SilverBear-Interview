@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Products]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Ram] NVARCHAR(50) NOT NULL, 
+    [Storage] NVARCHAR(50) NOT NULL, 
+    [GPU] NVARCHAR(50) NOT NULL, 
+    [Weight] NVARCHAR(20) NOT NULL, 
+    [PSU] NVARCHAR(50) NOT NULL, 
+    [CPU] NVARCHAR(100) NOT NULL
+)
