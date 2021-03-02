@@ -5,9 +5,16 @@
     <TypeScriptToolsVersion>4.2</TypeScriptToolsVersion>
   </PropertyGroup>
 
+  <Target Name="AfterBuild">
+    <!-- Lets get npm stuff ready -->
+    <Message Text="Installing NPM Packages"></Message>
+    <Exec Command="npm install"></Exec>
+    <Message Text="Building Frontend Code"></Message>
+    <Exec Command="npm run build"></Exec>
+  </Target>
+
   <ItemGroup>
     <None Remove="source\index.ts" />
-    <None Remove="tsconfig.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +23,6 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="source\index.ts" />
-    <TypeScriptCompile Include="tsconfig.ts" />
   </ItemGroup>
 
 </Project>

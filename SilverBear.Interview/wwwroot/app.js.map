@@ -1,0 +1,1 @@
+{"version":3,"file":"app.js","sources":["../source/index.ts"],"sourcesContent":["import { applyBindings, observable } from 'knockout'\r\n\r\n\r\nlet app = document.getElementById(\"app\") as HTMLDivElement;\r\napp.innerHTML = \"<h1>Its working</h1>\"\r\n"],"names":[],"mappings":";;CAGA,IAAI,GAAG,GAAG,QAAQ,CAAC,cAAc,CAAC,KAAK,CAAmB,CAAC;CAC3D,GAAG,CAAC,SAAS,GAAG,sBAAsB;;;;;;"}
