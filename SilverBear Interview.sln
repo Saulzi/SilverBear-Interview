@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Silverbear.Database", "Silverbear.Database\Silverbear.Database.sqlproj", "{BF5D8E59-0A84-4FDD-BDDF-A83F1BF31116}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverbear.Interview.Tests", "Silverbear.Interview.Tests\Silverbear.Interview.Tests.csproj", "{C5FFD796-C0D4-442B-9E1F-765156C42EED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{BF5D8E59-0A84-4FDD-BDDF-A83F1BF31116}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5D8E59-0A84-4FDD-BDDF-A83F1BF31116}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF5D8E59-0A84-4FDD-BDDF-A83F1BF31116}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C5FFD796-C0D4-442B-9E1F-765156C42EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FFD796-C0D4-442B-9E1F-765156C42EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FFD796-C0D4-442B-9E1F-765156C42EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FFD796-C0D4-442B-9E1F-765156C42EED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
