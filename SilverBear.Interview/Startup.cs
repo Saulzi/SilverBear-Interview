@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SilverBear.Interview.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace SilverBear.Interview
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
+            services.AddSingleton<IProductRepository, ProductRepository>();        // 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,7 +31,11 @@ namespace SilverBear.Interview
             }
 
             app.UseRouting();
+            app.UseEndpoints(f => f.MapControllers());
+
+            app.UseDefaultFiles(new DefaultFilesOptions() { DefaultFileNames = new[] { "/index.html" } } );
             app.UseStaticFiles();
+            
         }
     }
 }

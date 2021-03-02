@@ -1,6 +1,7 @@
 ﻿import typescript from "@rollup/plugin-typescript"
 
 /** @type {import('rollup').RollupOptions} */
+
 const config = {
     input: "source/index.ts",
     plugins: [typescript()],
