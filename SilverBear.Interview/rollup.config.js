@@ -1,10 +1,15 @@
 ﻿import typescript from "@rollup/plugin-typescript"
+import html from "rollup-plugin-html"
 
 /** @type {import('rollup').RollupOptions} */
 
 const config = {
     input: "source/index.ts",
-    plugins: [typescript()],
+    plugins: [typescript(), html({
+        htmlMinifierOptions: {
+            collapseWhitespace: true
+        }
+    })],
     output: {
         file: "wwwroot/app.js",
         sourcemap: true,            // May need re-configuring, needed for nice debug, want to not export this in release 

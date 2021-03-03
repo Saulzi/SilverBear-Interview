@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <TypeScriptToolsVersion>4.2</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <Target Name="AfterBuild">
@@ -14,6 +14,7 @@
   </Target>
 
   <ItemGroup>
+    <None Remove="HTML.d.ts" />
     <None Remove="source\index.ts" />
     <None Remove="source\Products.ts" />
   </ItemGroup>
@@ -23,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="HTML.d.ts" />
     <TypeScriptCompile Include="source\index.ts" />
     <TypeScriptCompile Include="source\Products.ts" />
   </ItemGroup>

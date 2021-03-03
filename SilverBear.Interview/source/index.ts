@@ -1,5 +1,5 @@
-﻿import { applyBindings, observable } from 'knockout'
+﻿import { ProductList } from "./ProductList"
 
-
+// Yummy Yummy yuck yuck
 let app = document.getElementById("app") as HTMLDivElement;
-app.innerHTML = "<h1>Its working</h1>"
+app.appendChild(new ProductList().element);
