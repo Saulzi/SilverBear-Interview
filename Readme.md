@@ -39,6 +39,7 @@ This requires NPM to be installed i.e. nodejs of a recentish version for build e
 ## Notes
 This is scaffolded similar to how I did Metis, except for using .Net 5. getting data from service (partial) this should have DB stuff implemented it doesn't because time.
 It also currently has no search functionality, no tests etc because time.
+there is absolutely no style for the same reasons.
 
 						
 						

@@ -10,7 +10,7 @@
         <input type="text" data-bind="textInput: psu" />
         <input type="text" data-bind="textInput: cpu" />
     </div>
-    <button data-bind="click: addCurrentItem"></button>
+    <button data-bind="click: addCurrentItem">Add</button>
 
     <div data-bind="foreach: products">
         <div data-bind="text: ram"></div>
@@ -20,6 +20,7 @@
         <div data-bind="text: weight"></div>
         <div data-bind="text: psu"></div>
         <div data-bind="text: cpu"></div>
+        <button data-bind="click: () => $root.removeCurrentItem($index())">Remove</button>
         <hr />
     </div>
 </div>

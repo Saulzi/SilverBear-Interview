@@ -33,7 +33,7 @@ define(['knockout'], function (knockout) { 'use strict';
         });
     }
 
-    var template = "﻿<input><div data-bind=\"hidden: products\">Loading ...</div><div data-bind=\"using: currentItem\"><input type=\"text\" data-bind=\"textInput: ram\"> <input type=\"text\" data-bind=\"textInput: storage\"> <input type=\"text\" data-bind=\"textInput: connectivity\"> <input type=\"text\" data-bind=\"textInput: gpu\"> <input type=\"text\" data-bind=\"textInput: weight\"> <input type=\"text\" data-bind=\"textInput: psu\"> <input type=\"text\" data-bind=\"textInput: cpu\"></div><button data-bind=\"click: addCurrentItem\"></button><div data-bind=\"foreach: products\"><div data-bind=\"text: ram\"></div><div data-bind=\"text: storage\"></div><div data-bind=\"text: connectivity\"></div><div data-bind=\"text: gpu\"></div><div data-bind=\"text: weight\"></div><div data-bind=\"text: psu\"></div><div data-bind=\"text: cpu\"></div><hr></div>";
+    var template = "﻿<input><div data-bind=\"hidden: products\">Loading ...</div><div data-bind=\"using: currentItem\"><input type=\"text\" data-bind=\"textInput: ram\"> <input type=\"text\" data-bind=\"textInput: storage\"> <input type=\"text\" data-bind=\"textInput: connectivity\"> <input type=\"text\" data-bind=\"textInput: gpu\"> <input type=\"text\" data-bind=\"textInput: weight\"> <input type=\"text\" data-bind=\"textInput: psu\"> <input type=\"text\" data-bind=\"textInput: cpu\"></div><button data-bind=\"click: addCurrentItem\">Add</button><div data-bind=\"foreach: products\"><div data-bind=\"text: ram\"></div><div data-bind=\"text: storage\"></div><div data-bind=\"text: connectivity\"></div><div data-bind=\"text: gpu\"></div><div data-bind=\"text: weight\"></div><div data-bind=\"text: psu\"></div><div data-bind=\"text: cpu\"></div><button data-bind=\"click: () => $root.removeCurrentItem($index())\">Remove</button><hr></div>";
 
     class ProductList {
         constructor() {
@@ -49,8 +49,10 @@ define(['knockout'], function (knockout) { 'use strict';
                 weight: ""
             };
             // Use a lambda because this :P
-            this.addCurrentItem = () => {
-                this.products.push(Object.assign({}, this.currentItem)); // Push copy of the current item
+            this.addCurrentItem = () => this.products.push(Object.assign({}, this.currentItem)); // Push copy of the current item
+            // Remove product
+            this.removeCurrentItem = (index) => {
+                this.products.splice(index, 1); // Remove the item at the specified index
             };
             this.element = document.createElement("div");
             this.element.innerHTML = template;

@@ -19,9 +19,11 @@ export class ProductList {
     };
 
     // Use a lambda because this :P
-    addCurrentItem = () => {
-        this.products.push({ ...this.currentItem });        // Push copy of the current item
-    }
+    addCurrentItem = () => this.products.push({ ...this.currentItem });        // Push copy of the current item
+    
+    // Remove product
+    removeCurrentItem = (index: number) => this.products.splice(index, 1);      // Remove the item at the specified index
+    
 
     constructor() {
         this.element = document.createElement("div");
