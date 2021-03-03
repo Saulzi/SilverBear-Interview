@@ -33,19 +33,30 @@ define(['knockout'], function (knockout) { 'use strict';
         });
     }
 
-    var template = "﻿<div><div data-bind=\"hidden: products\">Loading ...</div><div data-bind=\"foreach: products\"><div data-bind=\"text: ram\"></div><div data-bind=\"text: storage\"></div><div data-bind=\"text: connectivity\"></div><div data-bind=\"text: gpu\"></div><div data-bind=\"text: weight\"></div><div data-bind=\"text: psu\"></div><div data-bind=\"text: cpu\"></div><hr></div></div>";
+    var template = "﻿<input><div data-bind=\"hidden: products\">Loading ...</div><div data-bind=\"using: currentItem\"><input type=\"text\" data-bind=\"textInput: ram\"> <input type=\"text\" data-bind=\"textInput: storage\"> <input type=\"text\" data-bind=\"textInput: connectivity\"> <input type=\"text\" data-bind=\"textInput: gpu\"> <input type=\"text\" data-bind=\"textInput: weight\"> <input type=\"text\" data-bind=\"textInput: psu\"> <input type=\"text\" data-bind=\"textInput: cpu\"></div><button data-bind=\"click: addCurrentItem\"></button><div data-bind=\"foreach: products\"><div data-bind=\"text: ram\"></div><div data-bind=\"text: storage\"></div><div data-bind=\"text: connectivity\"></div><div data-bind=\"text: gpu\"></div><div data-bind=\"text: weight\"></div><div data-bind=\"text: psu\"></div><div data-bind=\"text: cpu\"></div><hr></div>";
 
     class ProductList {
         constructor() {
-            this.products = knockout.observable(); // Lets just render things for now
+            this.products = knockout.observableArray(); // Lets just render things for now
+            // Current item being edited
+            this.currentItem = {
+                connectivity: [""],
+                cpu: "",
+                gpu: "",
+                psu: "",
+                ram: "",
+                storage: "",
+                weight: ""
+            };
+            // Use a lambda because this :P
+            this.addCurrentItem = () => {
+                this.products.push(Object.assign({}, this.currentItem)); // Push copy of the current item
+            };
             this.element = document.createElement("div");
             this.element.innerHTML = template;
             knockout.applyBindings(this, this.element);
             // Lets use old school promises a+ syntax here to do shit in the constructor, its pretty late and this thing doesn't even display anything yet
-            productRepository().then(products => {
-                debugger;
-                this.products(products);
-            });
+            productRepository().then(products => this.products.push(...products));
         }
     }
 
