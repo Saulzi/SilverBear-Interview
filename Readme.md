@@ -33,8 +33,12 @@ Using the data in the Spreadsheet provided:
 * Prepare to present your solution in the next interview (the easiest way is to bring in your laptop)
 * Send any questions to tom.norton@silverbear.com but use search engines and other material as much as you want
 						
-# Instrutions 
-This requires NPM to be installed i.e. nodejs of a recentish version for build essentually this is invoked as part of the MSBuild build process in the SilverBear.Interview project
+## Instrutions 
+This requires NPM to be installed i.e. nodejs of a recentish version for build essentually this is invoked as part of the MSBuild build process in the SilverBear.Interview project, not getting to into MSBUILD here
+
+## Notes
+This is scaffolded similar to how I did Metis, except for using .Net 5. getting data from service (partial) this should have DB stuff implemented it doesn't because time.
+It also currently has no search functionality, no tests etc because time.
 
 						
 						
