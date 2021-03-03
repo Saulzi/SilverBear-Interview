@@ -13,6 +13,9 @@ export class ProductList {
         applyBindings(this, this.element);
 
         // Lets use old school promises a+ syntax here to do shit in the constructor, its pretty late and this thing doesn't even display anything yet
-        productRepository().then(products => this.products(products));
+        productRepository().then(products => {
+            debugger;
+            this.products(products)
+        });
     }
 }

@@ -40,8 +40,12 @@ define(['knockout'], function (knockout) { 'use strict';
             this.products = knockout.observable(); // Lets just render things for now
             this.element = document.createElement("div");
             this.element.innerHTML = template;
+            knockout.applyBindings(this, this.element);
             // Lets use old school promises a+ syntax here to do shit in the constructor, its pretty late and this thing doesn't even display anything yet
-            productRepository().then(products => this.products(products));
+            productRepository().then(products => {
+                debugger;
+                this.products(products);
+            });
         }
     }
 
