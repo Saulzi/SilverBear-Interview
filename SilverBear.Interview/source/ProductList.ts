@@ -1,9 +1,9 @@
-﻿import { applyBindings, observableArray } from "knockout"
+﻿import { applyBindings, observableArray, Observable, observable } from "knockout"
 import { Product, productRepository } from "./Products"
 import template from "./ProductList.html"
 
 export class ProductList {
-    products = observableArray<Product>();     // Lets just render things for now
+    products = observableArray<Product & { edit: Observable<boolean> }>();     // Lets just render things for now
 
     element: HTMLElement;
 
@@ -19,10 +19,17 @@ export class ProductList {
     };
 
     // Use a lambda because this :P
-    addCurrentItem = () => this.products.push({ ...this.currentItem });        // Push copy of the current item
+    addCurrentItem = () => this.addProduct(this.currentItem);        // Push copy of the current item
     
     // Remove product
     removeCurrentItem = (index: number) => this.products.splice(index, 1);      // Remove the item at the specified index
+
+    addProduct(product: Product) {
+        this.products.push({
+            ...product,
+            edit: observable(false)
+        })
+    }
     
 
     constructor() {
@@ -32,6 +39,6 @@ export class ProductList {
         applyBindings(this, this.element);
 
         // Lets use old school promises a+ syntax here to do shit in the constructor, its pretty late and this thing doesn't even display anything yet
-        productRepository().then(products => this.products.push(...products));
+        productRepository().then(products => products.forEach(f => this.addProduct(f)));
     }
 }
