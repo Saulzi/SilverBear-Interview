@@ -1,19 +1,52 @@
-﻿<div>
-    <div data-bind="hidden: products">Loading ...</div>
+﻿<div class="container">
+    <div data-bind="hidden: products" class="alert alert-primary">Loading ...</div>
+    
+    <h2>Add Product</h2>
+    <div class="row" data-bind="using: currentItem">
 
-    <div data-bind="using: currentItem">
-        <input type="text" data-bind="textInput: ram" />
-        <input type="text" data-bind="textInput: storage" />
-        <input type="text" data-bind="textInput: connectivity" />
-        <input type="text" data-bind="textInput: gpu" />
-        <input type="text" data-bind="textInput: weight" />
-        <input type="text" data-bind="textInput: psu" />
-        <input type="text" data-bind="textInput: cpu" />
+
+        <div class="form-group">
+            <label>Ram</label>
+            <input class="form-control" type="text" data-bind="textInput: ram" />
+        </div>
+
+        <div class="form-group">
+            <label>Storage</label>
+            <input class="form-control" type="text" data-bind="textInput: storage" />
+        </div>
+
+        <div class="form-group">
+            <label>Connectivity</label>
+            <input class="form-control" type="text" data-bind="textInput: connectivity" />
+        </div>
+
+        <div class="form-group">
+            <label>GPU</label>
+            <input class="form-control" type="text" data-bind="textInput: gpu" />
+        </div>
+
+        <div class="form-group">
+            <label>Weight</label>
+            <input class="form-control" type="text" data-bind="textInput: weight" />
+        </div>
+
+        <div class="form-group">
+            <label>PSU</label>
+            <input class="form-control" type="text" data-bind="textInput: psu" />
+        </div>
+
+        <div class="form-group">
+            <label>CPU</label>
+            <input class="form-control" type="text" data-bind="textInput: cpu" />
+        </div>
+
     </div>
-    <button data-bind="click: addCurrentItem">Add</button>
+
+
+
+    <button class="btn btn-primary" data-bind="click: addCurrentItem">Add</button>
 
     <div data-bind="foreach: products">
-        <button data-bind="click: () => edit(!edit())">Edit me!</button>
         <div data-bind="hidden: edit">
             <div data-bind="text: ram"></div>
             <div data-bind="text: storage"></div>
@@ -24,15 +57,16 @@
             <div data-bind="text: cpu"></div>
         </div>
         <div data-bind="visible: edit">
-            <input type="text" data-bind="textInput: ram" />
-            <input type="text" data-bind="textInput: storage" />
-            <input type="text" data-bind="textInput: connectivity" />
-            <input type="text" data-bind="textInput: gpu" />
-            <input type="text" data-bind="textInput: weight" />
-            <input type="text" data-bind="textInput: psu" />
-            <input type="text" data-bind="textInput: cpu" />
+            <input class="form-control" type="text" data-bind="textInput: ram" />
+            <input class="form-control" type="text" data-bind="textInput: storage" />
+            <input class="form-control" type="text" data-bind="textInput: connectivity" />
+            <input class="form-control" type="text" data-bind="textInput: gpu" />
+            <input class="form-control" type="text" data-bind="textInput: weight" />
+            <input class="form-control" type="text" data-bind="textInput: psu" />
+            <input class="form-control" type="text" data-bind="textInput: cpu" />
         </div>
-        <button data-bind="click: () => $root.removeCurrentItem($index())">Remove</button>
+        <button class="btn btn-primary" data-bind="click: () => edit(!edit())">Edit me!</button>
+        <button class="btn btn-primary" data-bind="click: () => $root.removeCurrentItem($index())">Remove</button>
         <hr />
     </div>
 </div>
